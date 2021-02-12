@@ -45,8 +45,8 @@ int main(void) {
 
 	std::thread* update_thr;
 
-	std::string			objectNameBuffer;
-	Strave::Vector2f	objectPositionBuffer;
+	std::string objectNameBuffer;
+	Strave::Vector2f objectPositionBuffer;
 
 	std::vector<Strave::GameObject2D*> objectContainer;
 	Strave::Renderer::RenderingConstraints* constraints;
