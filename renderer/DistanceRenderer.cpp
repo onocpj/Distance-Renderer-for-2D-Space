@@ -12,7 +12,7 @@ namespace Strave {
 	namespace Renderer {
 		
 		//=============================================================================
-		//								class: RenderMap
+		//				class: RenderMap
 		//=============================================================================
 
 		DistanceRendering::DistanceRendering(RenderingConstraints& constraints, const std::vector<GameObject2D*>& go2dCon, const Vector2v2f& normMapPoints)
@@ -114,7 +114,7 @@ namespace Strave {
 
 			std::unique_ptr<std::vector<GameObject2D*>> t_UnassignedObjectContainer = std::make_unique<std::vector<GameObject2D*>>(*m_GO2DContainerReference);
 
-			int			t_SegmentInitKey;
+			int		t_SegmentInitKey;
 			Vector2f	t_SegmentSize;
 			Vector2f	t_SegmentPosition;
 
@@ -141,7 +141,7 @@ namespace Strave {
 						)); 
 
 						t_SegmentPosition.x += t_SegmentSize.x;	// update section x position
-						t_SegmentInitKey++;						// update section key
+						t_SegmentInitKey++;			// update section key
 					}
 
 					t_SegmentPosition.x = m_NormalizedMapPoints.min.x;
@@ -185,8 +185,8 @@ namespace Strave {
 					if (t_ObjectPosition.x <= t_EndPosition.x &&
 						t_ObjectPosition.y <= t_EndPosition.y) {
 
-						t_GO2DSectionContainer->push_back(*iter);		// if so, push iteration of object to segment container
-						t_AssignedObjectIndex.push(t_Index);			// get index of this iteration
+						t_GO2DSectionContainer->push_back(*iter); // if so, push iteration of object to segment container
+						t_AssignedObjectIndex.push(t_Index);	  // get index of this iteration
 					}
 				}
 
@@ -220,7 +220,7 @@ namespace Strave {
 		}
 
 		//=============================================================================
-		//						    class: RenderMap::Segment
+		//			    class: RenderMap::Segment
 		//=============================================================================
 
 		DistanceRendering::Segment::Segment(SegmentKey_t key, const Vector2f& size, const Vector2f& pos, const std::vector<GameObject2D*>& go2dSegCon)
@@ -261,7 +261,7 @@ namespace Strave {
 		}
 
 		//=============================================================================
-		//						class: RenderMap::RenderSection
+		//			class: RenderMap::RenderSection
 		//=============================================================================
 
 		DistanceRendering::RenderSection::RenderSection(RenderingConstraints& constraints, const std::vector<std::shared_ptr<Segment>>& grid)
