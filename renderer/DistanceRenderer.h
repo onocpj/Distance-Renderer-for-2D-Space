@@ -13,12 +13,12 @@
 #include <wingdi.h>
 /*test*/
 
-#define INIT_RENDER_SECTION_KEY				0
-#define	MIN_MAP_SIZE						100.0f
-#define MIN_RADIUS							1.0f
-#define RENDERING_GRID_DIM					{ 60, 60 }
-#define MAX_RENDER_DISTANCE					5000.0f
-#define PRELOAD_RENDER_DISTANCE_OFFSET		20.0f	
+#define INIT_RENDER_SECTION_KEY		0
+#define	MIN_MAP_SIZE			100.0f
+#define MIN_RADIUS			1.0f
+#define RENDERING_GRID_DIM		{ 60, 60 }
+#define MAX_RENDER_DISTANCE		5000.0f
+#define PRELOAD_RENDER_DISTANCE_OFFSET	20.0f	
 
 namespace Strave {
 
@@ -75,12 +75,12 @@ namespace Strave {
 			class RenderSection {
 
 			private:
-				typedef std::vector<GameObject2D*>					GO2DList_t;
+				typedef std::vector<GameObject2D*>			GO2DList_t;
 				typedef std::vector<std::shared_ptr<Segment>>		RenderGrid_t;
 				typedef std::vector<std::shared_ptr<Segment>>*		GridReference_t;
 
-				typedef std::vector<std::shared_ptr<Segment>>::iterator		Grid_iter;
-				typedef std::vector<GameObject2D*>::iterator				GO2DList_iter;
+				typedef std::vector<std::shared_ptr<Segment>>::iterator	Grid_iter;
+				typedef std::vector<GameObject2D*>::iterator		GO2DList_iter;
 
 				typedef struct ComplexGrid {
 
@@ -139,22 +139,22 @@ namespace Strave {
 
 				inline void UpdatePointPosition(const Vector2f& pointPosition) { m_RenderingArea.RenderArea.SetPosition(pointPosition); }
 				void Render(const HDC& hdc);	// runtime function
-				void Update(void);				// runtime function)										
+				void Update(void);		// runtime function)										
 
 			private:
 				void Init(RenderingConstraints& constraints, const std::vector<std::shared_ptr<Segment>>& grid);
 				void PreloadRenderingGrid(void);
 				float VerifyRadius(float radius) const;
 				float GetPreloadRenderOffset(void) const;
-				void OptimizedUpdate(void);		// runtime function											
-				void RawUpdate(void);			// runtime function			
+				void OptimizedUpdate(void);	// runtime function											
+				void RawUpdate(void);		// runtime function		
+		
 
-
-				float							m_PreloadRenderOffset;
-				float							m_PreloadRenderDistance;
-				float							m_RenderDistance;
-				GridReference_t					m_GridReference;
-				RenderingArea_t					m_RenderingArea;
+				float				m_PreloadRenderOffset;
+				float				m_PreloadRenderDistance;
+				float				m_RenderDistance;
+				GridReference_t			m_GridReference;
+				RenderingArea_t			m_RenderingArea;
 				std::shared_ptr<ComplexGrid_t>	m_RenderingGrid;
 				std::shared_ptr<RenderBuffer_t>	m_RenderingBuffer;
 			};
@@ -179,13 +179,13 @@ namespace Strave {
 				friend const std::vector<GameObject2D*>& RenderSection::GetObjectContainer(const Segment& seg) const;
 
 
-				bool						m_OccupancyState;
-				unsigned int				m_ContainerSize;
-				SegmentKey_t				m_Key;
-				Vector2f					m_Size;
-				Vector2f					m_Position;
-				Vector2f					m_CenterPoint;
-				std::vector<GameObject2D*>* m_GO2DReferenceContainer;
+				bool				m_OccupancyState;
+				unsigned int			m_ContainerSize;
+				SegmentKey_t			m_Key;
+				Vector2f			m_Size;
+				Vector2f			m_Position;
+				Vector2f			m_CenterPoint;
+				std::vector<GameObject2D*>* 	m_GO2DReferenceContainer;
 
 			};
 
@@ -195,12 +195,12 @@ namespace Strave {
 			Vector2f GetMapSize(void) const;
 
 
-			Vector2u									m_NumberOfFields;
-			Vector2v2f									m_NormalizedMapPoints;
-			Vector2f									m_MapSize;
-			std::vector<std::shared_ptr<Segment>>		m_Grid;
-			std::shared_ptr<RenderSection>				m_RenderSection;
-			std::vector<GameObject2D*>*					m_GO2DContainerReference;
+			Vector2u				m_NumberOfFields;
+			Vector2v2f				m_NormalizedMapPoints;
+			Vector2f				m_MapSize;
+			std::vector<std::shared_ptr<Segment>>	m_Grid;
+			std::shared_ptr<RenderSection>		m_RenderSection;
+			std::vector<GameObject2D*>*		m_GO2DContainerReference;
 
 		};
 
